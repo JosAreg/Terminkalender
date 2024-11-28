@@ -1,0 +1,10 @@
+# Visual Studio spezifische Dateien/Ordner
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build-Output
+bin/
+obj/

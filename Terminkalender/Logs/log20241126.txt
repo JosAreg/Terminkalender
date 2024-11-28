@@ -1,0 +1,135 @@
+2024-11-26 15:12:00.958 +01:00 [INF] User profile is available. Using 'C:\Users\josia\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 15:12:01.125 +01:00 [INF] Now listening on: https://localhost:7240
+2024-11-26 15:12:01.126 +01:00 [INF] Now listening on: http://localhost:5267
+2024-11-26 15:12:01.145 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 15:12:01.192 +01:00 [INF] Hosting environment: Development
+2024-11-26 15:12:01.238 +01:00 [INF] Content root path: C:\Users\josia\source\repos\Terminkalender\Terminkalender
+2024-11-26 15:12:02.070 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/ - null null
+2024-11-26 15:12:02.178 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.HomeController.Index (Terminkalender)'
+2024-11-26 15:12:02.197 +01:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Terminkalender.Controllers.HomeController (Terminkalender).
+2024-11-26 15:12:02.205 +01:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 15:12:02.311 +01:00 [INF] Executed ViewResult - view Index executed in 106.4568ms.
+2024-11-26 15:12:02.314 +01:00 [INF] Executed action Terminkalender.Controllers.HomeController.Index (Terminkalender) in 113.7494ms
+2024-11-26 15:12:02.316 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.HomeController.Index (Terminkalender)'
+2024-11-26 15:12:02.320 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/ - 200 null text/html; charset=utf-8 258.9111ms
+2024-11-26 15:12:02.388 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - null null
+2024-11-26 15:12:02.388 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/lib/jquery/dist/jquery.min.js - null null
+2024-11-26 15:12:02.388 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-11-26 15:12:02.388 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-11-26 15:12:02.388 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-11-26 15:12:02.393 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-11-26 15:12:02.419 +01:00 [INF] Sending file. Request path: '/Terminkalender.styles.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\obj\Debug\net8.0\scopedcss\bundle\Terminkalender.styles.css'
+2024-11-26 15:12:02.397 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/_vs/browserLink - null null
+2024-11-26 15:12:02.434 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - 200 1132 text/css 46.5988ms
+2024-11-26 15:12:02.410 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 15:12:02.445 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-11-26 15:12:02.447 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-11-26 15:12:02.454 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 65.9306ms
+2024-11-26 15:12:02.436 +01:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\css\site.css'
+2024-11-26 15:12:02.436 +01:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\js\site.js'
+2024-11-26 15:12:02.455 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 67.2211ms
+2024-11-26 15:12:02.460 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 72.1808ms
+2024-11-26 15:12:02.462 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 69.0733ms
+2024-11-26 15:12:02.455 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 45.6115ms
+2024-11-26 15:12:02.474 +01:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-11-26 15:12:02.481 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 92.5364ms
+2024-11-26 15:12:02.490 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/_vs/browserLink - 200 null text/javascript; charset=UTF-8 93.3239ms
+2024-11-26 15:12:02.576 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/favicon.ico - null null
+2024-11-26 15:12:02.591 +01:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\favicon.ico'
+2024-11-26 15:12:02.593 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/favicon.ico - 200 5430 image/x-icon 17.115ms
+2024-11-26 15:40:57.739 +01:00 [INF] User profile is available. Using 'C:\Users\josia\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 15:40:58.007 +01:00 [INF] Now listening on: https://localhost:7240
+2024-11-26 15:40:58.008 +01:00 [INF] Now listening on: http://localhost:5267
+2024-11-26 15:40:58.076 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 15:40:58.078 +01:00 [INF] Hosting environment: Development
+2024-11-26 15:40:58.079 +01:00 [INF] Content root path: C:\Users\josia\source\repos\Terminkalender\Terminkalender
+2024-11-26 15:41:00.159 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/ - null null
+2024-11-26 15:41:00.274 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.HomeController.Index (Terminkalender)'
+2024-11-26 15:41:00.300 +01:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Terminkalender.Controllers.HomeController (Terminkalender).
+2024-11-26 15:41:00.313 +01:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 15:41:00.374 +01:00 [INF] Executed ViewResult - view Index executed in 66.554ms.
+2024-11-26 15:41:00.378 +01:00 [INF] Executed action Terminkalender.Controllers.HomeController.Index (Terminkalender) in 75.4657ms
+2024-11-26 15:41:00.379 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.HomeController.Index (Terminkalender)'
+2024-11-26 15:41:00.385 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/ - 200 null text/html; charset=utf-8 231.9211ms
+2024-11-26 15:41:00.433 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-11-26 15:41:00.433 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-11-26 15:41:00.433 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/_vs/browserLink - null null
+2024-11-26 15:41:00.433 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-11-26 15:41:00.433 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/lib/jquery/dist/jquery.min.js - null null
+2024-11-26 15:41:00.433 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-11-26 15:41:00.433 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - null null
+2024-11-26 15:41:00.497 +01:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\css\site.css'
+2024-11-26 15:41:00.438 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 15:41:00.492 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-11-26 15:41:00.501 +01:00 [INF] Sending file. Request path: '/Terminkalender.styles.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\obj\Debug\net8.0\scopedcss\bundle\Terminkalender.styles.css'
+2024-11-26 15:41:00.502 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 70.0505ms
+2024-11-26 15:41:00.509 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - 200 1132 text/css 77.2314ms
+2024-11-26 15:41:00.507 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 75.1183ms
+2024-11-26 15:41:00.473 +01:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\js\site.js'
+2024-11-26 15:41:00.479 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-11-26 15:41:00.499 +01:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-11-26 15:41:00.509 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 71.4743ms
+2024-11-26 15:41:00.525 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/_vs/browserLink - 200 null text/javascript; charset=UTF-8 92.7909ms
+2024-11-26 15:41:00.527 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 94.3195ms
+2024-11-26 15:41:00.529 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 96.9082ms
+2024-11-26 15:41:00.531 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 99.038ms
+2024-11-26 15:41:00.657 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/favicon.ico - null null
+2024-11-26 15:41:00.846 +01:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\favicon.ico'
+2024-11-26 15:41:00.914 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/favicon.ico - 200 5430 image/x-icon 257.4881ms
+2024-11-26 15:41:44.943 +01:00 [FTL] An error occured while strarting the application
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\josia\source\repos\Terminkalender\Terminkalender\Program.cs:line 29
+2024-11-26 15:41:48.488 +01:00 [FTL] An error occured while strarting the application
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\josia\source\repos\Terminkalender\Terminkalender\Program.cs:line 29
+2024-11-26 18:22:43.392 +01:00 [INF] User profile is available. Using 'C:\Users\josia\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-26 18:22:43.716 +01:00 [INF] Now listening on: https://localhost:7240
+2024-11-26 18:22:43.720 +01:00 [INF] Now listening on: http://localhost:5267
+2024-11-26 18:22:43.748 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-26 18:22:43.778 +01:00 [INF] Hosting environment: Development
+2024-11-26 18:22:43.831 +01:00 [INF] Content root path: C:\Users\josia\source\repos\Terminkalender\Terminkalender
+2024-11-26 18:22:46.914 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/ - null null
+2024-11-26 18:22:47.184 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.HomeController.Index (Terminkalender)'
+2024-11-26 18:22:47.227 +01:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Terminkalender.Controllers.HomeController (Terminkalender).
+2024-11-26 18:22:47.248 +01:00 [INF] Executing ViewResult, running view Index.
+2024-11-26 18:22:47.450 +01:00 [INF] Executed ViewResult - view Index executed in 202.9358ms.
+2024-11-26 18:22:47.493 +01:00 [INF] Executed action Terminkalender.Controllers.HomeController.Index (Terminkalender) in 253.9274ms
+2024-11-26 18:22:47.496 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.HomeController.Index (Terminkalender)'
+2024-11-26 18:22:47.511 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/ - 200 null text/html; charset=utf-8 609.8359ms
+2024-11-26 18:22:47.658 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-11-26 18:22:47.661 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-11-26 18:22:47.658 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-11-26 18:22:47.659 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-11-26 18:22:47.719 +01:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\js\site.js'
+2024-11-26 18:22:47.658 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - null null
+2024-11-26 18:22:47.727 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 64.2423ms
+2024-11-26 18:22:47.658 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/lib/jquery/dist/jquery.min.js - null null
+2024-11-26 18:22:47.674 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-26 18:22:47.673 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/_vs/browserLink - null null
+2024-11-26 18:22:47.748 +01:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-11-26 18:22:47.740 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-11-26 18:22:47.721 +01:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\css\site.css'
+2024-11-26 18:22:47.753 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 94.6291ms
+2024-11-26 18:22:47.753 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 79.1622ms
+2024-11-26 18:22:47.755 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 96.1665ms
+2024-11-26 18:22:47.758 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 99.4153ms
+2024-11-26 18:22:47.743 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-11-26 18:22:47.734 +01:00 [INF] Sending file. Request path: '/Terminkalender.styles.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\obj\Debug\net8.0\scopedcss\bundle\Terminkalender.styles.css'
+2024-11-26 18:22:47.777 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 118.7924ms
+2024-11-26 18:22:47.779 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - 200 1132 text/css 120.2778ms
+2024-11-26 18:22:47.851 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/_vs/browserLink - 200 null text/javascript; charset=UTF-8 178.0439ms
+2024-11-26 18:22:47.906 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7240/favicon.ico - null null
+2024-11-26 18:22:47.914 +01:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\favicon.ico'
+2024-11-26 18:22:47.916 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7240/favicon.ico - 200 5430 image/x-icon 10.7317ms
