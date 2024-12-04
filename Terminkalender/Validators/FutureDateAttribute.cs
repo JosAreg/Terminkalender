@@ -8,9 +8,9 @@ namespace Terminkalender.Validators
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-           if(value is DateOnly dateValue)
+           if(value is DateTime dateValue)
             {
-                if(dateValue >= DateOnly.FromDateTime(DateTime.Now))
+                if(dateValue.Date > DateTime.Now.Date)
                 {
                     return ValidationResult.Success;
                 }

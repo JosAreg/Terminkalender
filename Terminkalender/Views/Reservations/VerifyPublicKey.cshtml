@@ -1,0 +1,23 @@
+﻿@model Terminkalender.Models.VerifyPublicKeyViewModel
+
+@{
+    ViewData["Title"] = "VerifyPublicKey";
+}
+
+<h1>Key Verifizieren</h1>
+
+<form asp-action="VerifyPublicKey" method="post">
+    <input type="hidden" asp-for="ReservationId"/>
+    <input type="hidden" asp-for="ReturnAction"/>
+
+    <div class="form-group">
+        <label asp-for="PublicKey"></label>
+        <input asp-for="PublicKey" class="form-controll"/>
+        <span asp-validation-for="PublicKey" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Verifizieren</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -15,27 +15,33 @@ namespace Terminkalender.Services
             _logger = logger;
         }
 
-        public bool IsRoomAvailable(Room room, DateTime date, TimeOnly startTime, TimeOnly endTime)
+        public bool IsRoomAvailable(Room room, DateTime date, TimeOnly startTime, TimeOnly endTime, int Id)
         {
-            var overlappingReservations = _context.Reservations // holt aus der Datenbank: Alle reservationen an diesem Tag für diesen Raum und erstellt weine Liste
-                .Where(r => r.Room == room && r.Date == date)
+            var overlappingReservations = _context.Reservations
+                .Where(r => r.Room == room && r.Date.Date == date.Date && r.Id != Id) // Die eigene Reservierung ignorieren
                 .ToList();
 
             foreach (var reservation in overlappingReservations)
             {
-                // prüft ob eine Startzeit während einer bestehenden 
-                bool startsDuringExistingReservations = reservation.StartTime < endTime && reservation.StartTime >= startTime; 
-                // prüft ob die Endzeit in einer Bestehenden Reservierung ist
+                // prüft, ob die Startzeit während einer bestehenden Reservierung liegt
+                bool startsDuringExistingReservation = reservation.StartTime < endTime && reservation.StartTime >= startTime;
+
+                // prüft, ob die Endzeit während einer bestehenden Reservierung liegt
                 bool endsDuringExistingReservation = reservation.EndTime > startTime && reservation.EndTime <= endTime;
-                // prüft ob eine neue Reservierung vollständig während einer Reservierung stattfinden würde
+
+                // prüft, ob eine neue Reservierung vollständig während einer bestehenden Reservierung stattfinden würde
                 bool fullyContainsNewReservation = reservation.StartTime <= startTime && reservation.EndTime >= endTime;
 
-                if (startsDuringExistingReservations || endsDuringExistingReservation || fullyContainsNewReservation)
+                if (startsDuringExistingReservation || endsDuringExistingReservation || fullyContainsNewReservation)
                 {
+                    _logger.LogWarning("Konflikt entdeckt: Reservierung {ReservationId} überschneidet sich.", reservation.Id);
                     return false;
                 }
             }
+
+            _logger.LogInformation("Der Raum ist verfügbar für den angegebenen Zeitraum.");
             return true;
         }
+
     }
 }

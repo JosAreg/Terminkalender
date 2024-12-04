@@ -7,6 +7,14 @@ using Terminkalender.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Session-Konfiguration für PrivateKey
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options => {
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 // Serilog konfigurieren
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
@@ -26,10 +34,8 @@ builder.Services.AddDbContext<TerminkalenderContext>(options =>
 // Controller und Views hinzufügen
 builder.Services.AddControllersWithViews();
 
-
 // Services 
 builder.Services.AddScoped<ReservationService>();
-
 
 try
 {
@@ -44,6 +50,7 @@ try
 
     app.UseHttpsRedirection();
     app.UseStaticFiles();
+    app.UseSession();
 
     app.UseRouting();
 
