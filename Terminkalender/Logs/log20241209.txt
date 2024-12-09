@@ -1,0 +1,577 @@
+2024-12-09 08:48:20.424 +01:00 [INF] User profile is available. Using 'C:\Users\josia\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 08:48:20.667 +01:00 [INF] Now listening on: https://localhost:5001
+2024-12-09 08:48:20.670 +01:00 [INF] Now listening on: http://localhost:5000
+2024-12-09 08:48:20.699 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 08:48:20.703 +01:00 [INF] Hosting environment: Development
+2024-12-09 08:48:20.708 +01:00 [INF] Content root path: C:\Users\josia\source\repos\Terminkalender\Terminkalender
+2024-12-09 08:48:21.536 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 08:48:21.742 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 08:48:21.792 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 08:48:22.263 +01:00 [INF] Index action invoked.
+2024-12-09 08:48:22.868 +01:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+2024-12-09 08:48:22.963 +01:00 [INF] Fetched 13 reservations from the database.
+2024-12-09 08:48:22.971 +01:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 08:48:23.128 +01:00 [INF] Executed ViewResult - view Index executed in 154.4165ms.
+2024-12-09 08:48:23.139 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 1342.981ms
+2024-12-09 08:48:23.147 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 08:48:23.165 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 1635.0724ms
+2024-12-09 08:48:23.203 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-12-09 08:48:23.206 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-12-09 08:48:23.203 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-12-09 08:48:23.203 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - null null
+2024-12-09 08:48:23.203 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - null null
+2024-12-09 08:48:23.203 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-12-09 08:48:23.203 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 08:48:23.209 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 08:48:23.274 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-12-09 08:48:23.258 +01:00 [INF] Sending file. Request path: '/Terminkalender.styles.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\obj\Debug\net8.0\scopedcss\bundle\Terminkalender.styles.css'
+2024-12-09 08:48:23.287 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 83.8668ms
+2024-12-09 08:48:23.289 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - 200 1132 text/css 85.8594ms
+2024-12-09 08:48:23.290 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 81.8189ms
+2024-12-09 08:48:23.270 +01:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\css\site.css'
+2024-12-09 08:48:23.257 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-12-09 08:48:23.257 +01:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\js\site.js'
+2024-12-09 08:48:23.303 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 100.2455ms
+2024-12-09 08:48:23.305 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 102.5062ms
+2024-12-09 08:48:23.307 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 104.0485ms
+2024-12-09 08:48:23.318 +01:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-12-09 08:48:23.324 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 121.1162ms
+2024-12-09 08:48:23.325 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 121.6955ms
+2024-12-09 08:48:23.347 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2024-12-09 08:48:23.358 +01:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\favicon.ico'
+2024-12-09 08:48:23.360 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 200 5430 image/x-icon 13.357ms
+2024-12-09 14:41:05.249 +01:00 [INF] User profile is available. Using 'C:\Users\josia\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 14:41:05.428 +01:00 [INF] Now listening on: https://localhost:5001
+2024-12-09 14:41:05.431 +01:00 [INF] Now listening on: http://localhost:5000
+2024-12-09 14:41:05.452 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 14:41:05.454 +01:00 [INF] Hosting environment: Development
+2024-12-09 14:41:05.455 +01:00 [INF] Content root path: C:\Users\josia\source\repos\Terminkalender\Terminkalender
+2024-12-09 14:41:05.919 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 14:41:06.042 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:41:06.073 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:41:06.462 +01:00 [INF] Index action invoked.
+2024-12-09 14:41:11.020 +01:00 [ERR] An error occurred using the connection to database 'terminkalender' on server 'localhost'.
+2024-12-09 14:41:11.061 +01:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Terminkalender.Data.TerminkalenderContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2024-12-09 14:41:11.135 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 5059.0998ms
+2024-12-09 14:41:11.138 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:41:11.152 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1063
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 425
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+   at MySqlConnector.Core.ConnectionPool.ConnectSessionAsync(MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 111
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 144
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 419
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Terminkalender.Controllers.ReservationsController.Index() in C:\Users\josia\source\repos\Terminkalender\Terminkalender\Controllers\ReservationsController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-12-09 14:41:11.293 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 500 null text/html; charset=utf-8 5377.7142ms
+2024-12-09 14:41:11.328 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 14:41:11.328 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 14:41:11.346 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 17.9292ms
+2024-12-09 14:41:11.385 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.1563ms
+2024-12-09 14:41:11.468 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2024-12-09 14:41:11.496 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 404 0 null 28.5345ms
+2024-12-09 14:41:11.503 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/favicon.ico, Response status code: 404
+2024-12-09 14:51:58.298 +01:00 [FTL] An error occured while strarting the application
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\josia\source\repos\Terminkalender\Terminkalender\Program.cs:line 42
+2024-12-09 14:52:20.242 +01:00 [FTL] An error occured while strarting the application
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\josia\source\repos\Terminkalender\Terminkalender\Program.cs:line 42
+2024-12-09 14:53:03.287 +01:00 [INF] User profile is available. Using 'C:\Users\josia\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 14:53:03.456 +01:00 [INF] Now listening on: https://localhost:5001
+2024-12-09 14:53:03.457 +01:00 [INF] Now listening on: http://localhost:5000
+2024-12-09 14:53:03.475 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 14:53:03.476 +01:00 [INF] Hosting environment: Development
+2024-12-09 14:53:03.476 +01:00 [INF] Content root path: C:\Users\josia\source\repos\Terminkalender\Terminkalender
+2024-12-09 14:53:04.332 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 14:53:04.442 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:53:04.467 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:53:04.791 +01:00 [INF] Index action invoked.
+2024-12-09 14:53:05.182 +01:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+2024-12-09 14:53:05.200 +01:00 [INF] Fetched 0 reservations from the database.
+2024-12-09 14:53:05.207 +01:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 14:53:05.305 +01:00 [INF] Executed ViewResult - view Index executed in 98.6159ms.
+2024-12-09 14:53:05.308 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 838.4686ms
+2024-12-09 14:53:05.310 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:53:05.320 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 989.8006ms
+2024-12-09 14:53:05.340 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-12-09 14:53:05.340 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - null null
+2024-12-09 14:53:05.340 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-12-09 14:53:05.341 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - null null
+2024-12-09 14:53:05.340 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-12-09 14:53:05.345 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-12-09 14:53:05.368 +01:00 [INF] Sending file. Request path: '/Terminkalender.styles.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\obj\Debug\net8.0\scopedcss\bundle\Terminkalender.styles.css'
+2024-12-09 14:53:05.368 +01:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\css\site.css'
+2024-12-09 14:53:05.348 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 14:53:05.382 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Terminkalender.styles.css?v=swYVJiL7vidzxXCCkPhCJbVGQTqF1hn_elTtelB1Sm4 - 200 1132 text/css 38.2558ms
+2024-12-09 14:53:05.384 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 44.1119ms
+2024-12-09 14:53:05.350 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 14:53:05.393 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-12-09 14:53:05.383 +01:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\js\site.js'
+2024-12-09 14:53:05.402 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 61.3652ms
+2024-12-09 14:53:05.403 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 52.3934ms
+2024-12-09 14:53:05.404 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 59.699ms
+2024-12-09 14:53:05.389 +01:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-12-09 14:53:05.416 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 75.8803ms
+2024-12-09 14:53:05.419 +01:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-12-09 14:53:05.423 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 82.1272ms
+2024-12-09 14:53:05.430 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 82.4468ms
+2024-12-09 14:53:05.444 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2024-12-09 14:53:05.449 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 404 0 null 5.9487ms
+2024-12-09 14:53:05.453 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/favicon.ico, Response status code: 404
+2024-12-09 14:53:08.630 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Reservations/Create - null null
+2024-12-09 14:53:08.638 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:53:08.641 +01:00 [INF] Route matched with {action = "Create", controller = "Reservations"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:53:08.643 +01:00 [INF] Create (GET) action invoked.
+2024-12-09 14:53:08.645 +01:00 [INF] Executing ViewResult, running view Create.
+2024-12-09 14:53:08.699 +01:00 [INF] Executed ViewResult - view Create executed in 54.3923ms.
+2024-12-09 14:53:08.704 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Create (Terminkalender) in 61.9055ms
+2024-12-09 14:53:08.707 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:53:08.708 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Reservations/Create - 200 null text/html; charset=utf-8 78.1367ms
+2024-12-09 14:53:08.730 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2024-12-09 14:53:08.731 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 14:53:08.731 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 14:53:08.731 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2024-12-09 14:53:08.745 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 14.4105ms
+2024-12-09 14:53:08.755 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.9942ms
+2024-12-09 14:53:08.782 +01:00 [INF] Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js'
+2024-12-09 14:53:08.783 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 200 5824 text/javascript 52.2968ms
+2024-12-09 14:53:08.791 +01:00 [INF] Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js'
+2024-12-09 14:53:08.792 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/jquery-validation/dist/jquery.validate.min.js - 200 24601 text/javascript 62.3613ms
+2024-12-09 14:56:09.642 +01:00 [INF] Request starting HTTP/2 POST https://localhost:5001/Reservations/Create - application/x-www-form-urlencoded 514
+2024-12-09 14:56:09.651 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:56:09.660 +01:00 [INF] Route matched with {action = "Create", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Terminkalender.Models.Reservation) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:56:09.693 +01:00 [INF] Create (POST) action invoked with reservation details: Terminkalender.Models.Reservation
+2024-12-09 14:56:09.698 +01:00 [INF] Checking room availability for room: Room_101, date: 10.12.2024 00:00:00, start: 10:00, end: 12:00
+2024-12-09 14:56:09.776 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[@__room_0='?' (DbType = Int32), @__date_Date_1='?' (DbType = DateTime), @__Id_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+WHERE ((`r`.`Room` = @__room_0) AND (CONVERT(`r`.`Date`, date) = @__date_Date_1)) AND (`r`.`Id` <> @__Id_2)
+2024-12-09 14:56:09.780 +01:00 [INF] Der Raum ist verfügbar für den angegebenen Zeitraum.
+2024-12-09 14:56:09.877 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Time), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Guid), @p5='?' (DbType = Guid), @p6='?' (Size = 200), @p7='?' (DbType = Int32), @p8='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Reservations` (`Date`, `EndTime`, `Organizer`, `Participants`, `PrivateKey`, `PublicKey`, `Remarks`, `Room`, `StartTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT `Id`
+FROM `Reservations`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-09 14:56:09.898 +01:00 [INF] Reservation created successfully with ID: 1
+2024-12-09 14:56:09.911 +01:00 [INF] Executing RedirectResult, redirecting to /.
+2024-12-09 14:56:09.912 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Create (Terminkalender) in 250.2944ms
+2024-12-09 14:56:09.914 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:56:09.916 +01:00 [INF] Request finished HTTP/2 POST https://localhost:5001/Reservations/Create - 302 0 null 274.49ms
+2024-12-09 14:56:09.924 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 14:56:09.927 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:56:09.928 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:56:09.930 +01:00 [INF] Index action invoked.
+2024-12-09 14:56:09.966 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+2024-12-09 14:56:09.978 +01:00 [INF] Fetched 1 reservations from the database.
+2024-12-09 14:56:09.979 +01:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 14:56:09.986 +01:00 [INF] Executed ViewResult - view Index executed in 6.3154ms.
+2024-12-09 14:56:09.987 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 57.1829ms
+2024-12-09 14:56:09.988 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:56:09.989 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 65.8208ms
+2024-12-09 14:56:10.031 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 14:56:10.032 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 14:56:10.036 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 4.9685ms
+2024-12-09 14:56:10.051 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.6304ms
+2024-12-09 14:56:12.295 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Reservations/Create - null null
+2024-12-09 14:56:12.299 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:56:12.300 +01:00 [INF] Route matched with {action = "Create", controller = "Reservations"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:56:12.303 +01:00 [INF] Create (GET) action invoked.
+2024-12-09 14:56:12.304 +01:00 [INF] Executing ViewResult, running view Create.
+2024-12-09 14:56:12.308 +01:00 [INF] Executed ViewResult - view Create executed in 3.9271ms.
+2024-12-09 14:56:12.310 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Create (Terminkalender) in 7.096ms
+2024-12-09 14:56:12.311 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:56:12.313 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Reservations/Create - 200 null text/html; charset=utf-8 18.0144ms
+2024-12-09 14:56:12.360 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 14:56:12.360 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 14:56:12.370 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.2412ms
+2024-12-09 14:56:12.373 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 12.5275ms
+2024-12-09 14:57:54.692 +01:00 [INF] Request starting HTTP/2 POST https://localhost:5001/Reservations/Create - application/x-www-form-urlencoded 500
+2024-12-09 14:57:54.711 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:57:54.715 +01:00 [INF] Route matched with {action = "Create", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Terminkalender.Models.Reservation) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:57:54.721 +01:00 [INF] Create (POST) action invoked with reservation details: Terminkalender.Models.Reservation
+2024-12-09 14:57:54.722 +01:00 [INF] Checking room availability for room: Room_104, date: 13.12.2024 00:00:00, start: 18:00, end: 23:00
+2024-12-09 14:57:54.729 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__room_0='?' (DbType = Int32), @__date_Date_1='?' (DbType = DateTime), @__Id_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+WHERE ((`r`.`Room` = @__room_0) AND (CONVERT(`r`.`Date`, date) = @__date_Date_1)) AND (`r`.`Id` <> @__Id_2)
+2024-12-09 14:57:54.732 +01:00 [INF] Der Raum ist verfügbar für den angegebenen Zeitraum.
+2024-12-09 14:57:54.744 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Time), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Guid), @p5='?' (DbType = Guid), @p6='?' (Size = 200), @p7='?' (DbType = Int32), @p8='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Reservations` (`Date`, `EndTime`, `Organizer`, `Participants`, `PrivateKey`, `PublicKey`, `Remarks`, `Room`, `StartTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT `Id`
+FROM `Reservations`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-09 14:57:54.751 +01:00 [INF] Reservation created successfully with ID: 2
+2024-12-09 14:57:54.752 +01:00 [INF] Executing RedirectResult, redirecting to /.
+2024-12-09 14:57:54.754 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Create (Terminkalender) in 35.0867ms
+2024-12-09 14:57:54.755 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:57:54.757 +01:00 [INF] Request finished HTTP/2 POST https://localhost:5001/Reservations/Create - 302 0 null 65.0601ms
+2024-12-09 14:57:54.767 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 14:57:54.773 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:57:54.774 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:57:54.777 +01:00 [INF] Index action invoked.
+2024-12-09 14:57:54.783 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+2024-12-09 14:57:54.786 +01:00 [INF] Fetched 2 reservations from the database.
+2024-12-09 14:57:54.789 +01:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 14:57:54.795 +01:00 [INF] Executed ViewResult - view Index executed in 6.3711ms.
+2024-12-09 14:57:54.797 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 20.2912ms
+2024-12-09 14:57:54.798 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:57:54.800 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 34.1568ms
+2024-12-09 14:57:54.876 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 14:57:54.876 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 14:57:54.891 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 14.8096ms
+2024-12-09 14:57:54.896 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.9589ms
+2024-12-09 14:58:11.574 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Reservations/Create - null null
+2024-12-09 14:58:11.579 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:58:11.580 +01:00 [INF] Route matched with {action = "Create", controller = "Reservations"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:58:11.581 +01:00 [INF] Create (GET) action invoked.
+2024-12-09 14:58:11.582 +01:00 [INF] Executing ViewResult, running view Create.
+2024-12-09 14:58:11.586 +01:00 [INF] Executed ViewResult - view Create executed in 3.712ms.
+2024-12-09 14:58:11.587 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Create (Terminkalender) in 5.9527ms
+2024-12-09 14:58:11.588 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:58:11.589 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Reservations/Create - 200 null text/html; charset=utf-8 15.3406ms
+2024-12-09 14:58:11.628 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 14:58:11.628 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 14:58:11.635 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 7.7606ms
+2024-12-09 14:58:11.641 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.5959ms
+2024-12-09 14:59:41.759 +01:00 [INF] Request starting HTTP/2 POST https://localhost:5001/Reservations/Create - application/x-www-form-urlencoded 510
+2024-12-09 14:59:41.768 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:59:41.770 +01:00 [INF] Route matched with {action = "Create", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Terminkalender.Models.Reservation) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:59:41.772 +01:00 [INF] Create (POST) action invoked with reservation details: Terminkalender.Models.Reservation
+2024-12-09 14:59:41.773 +01:00 [INF] Checking room availability for room: Room_101, date: 12.12.2024 00:00:00, start: 10:30, end: 11:00
+2024-12-09 14:59:41.776 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__room_0='?' (DbType = Int32), @__date_Date_1='?' (DbType = DateTime), @__Id_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+WHERE ((`r`.`Room` = @__room_0) AND (CONVERT(`r`.`Date`, date) = @__date_Date_1)) AND (`r`.`Id` <> @__Id_2)
+2024-12-09 14:59:41.778 +01:00 [INF] Der Raum ist verfügbar für den angegebenen Zeitraum.
+2024-12-09 14:59:41.791 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Time), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Guid), @p5='?' (DbType = Guid), @p6='?' (Size = 200), @p7='?' (DbType = Int32), @p8='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Reservations` (`Date`, `EndTime`, `Organizer`, `Participants`, `PrivateKey`, `PublicKey`, `Remarks`, `Room`, `StartTime`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT `Id`
+FROM `Reservations`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-09 14:59:41.797 +01:00 [INF] Reservation created successfully with ID: 3
+2024-12-09 14:59:41.798 +01:00 [INF] Executing RedirectResult, redirecting to /.
+2024-12-09 14:59:41.800 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Create (Terminkalender) in 28.7021ms
+2024-12-09 14:59:41.802 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Create (Terminkalender)'
+2024-12-09 14:59:41.803 +01:00 [INF] Request finished HTTP/2 POST https://localhost:5001/Reservations/Create - 302 0 null 44.1016ms
+2024-12-09 14:59:41.809 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 14:59:41.814 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:59:41.815 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 14:59:41.818 +01:00 [INF] Index action invoked.
+2024-12-09 14:59:41.823 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+2024-12-09 14:59:41.825 +01:00 [INF] Fetched 3 reservations from the database.
+2024-12-09 14:59:41.826 +01:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 14:59:41.831 +01:00 [INF] Executed ViewResult - view Index executed in 5.225ms.
+2024-12-09 14:59:41.833 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 15.4984ms
+2024-12-09 14:59:41.835 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 14:59:41.837 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 27.8116ms
+2024-12-09 14:59:41.907 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 14:59:41.909 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 14:59:41.919 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 9.7189ms
+2024-12-09 14:59:41.922 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.4795ms
+2024-12-09 15:02:07.045 +01:00 [INF] User profile is available. Using 'C:\Users\josia\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 15:02:07.240 +01:00 [INF] Now listening on: https://localhost:5001
+2024-12-09 15:02:07.241 +01:00 [INF] Now listening on: http://localhost:5000
+2024-12-09 15:02:07.257 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 15:02:07.258 +01:00 [INF] Hosting environment: Development
+2024-12-09 15:02:07.259 +01:00 [INF] Content root path: C:\Users\josia\source\repos\Terminkalender\Terminkalender
+2024-12-09 15:02:08.208 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 15:02:08.279 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 15:02:08.299 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:02:08.932 +01:00 [INF] Index action invoked.
+2024-12-09 15:02:09.337 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+2024-12-09 15:02:09.395 +01:00 [INF] Fetched 3 reservations from the database.
+2024-12-09 15:02:09.410 +01:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 15:02:09.555 +01:00 [INF] Executed ViewResult - view Index executed in 146.5429ms.
+2024-12-09 15:02:09.559 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 1243.7283ms
+2024-12-09 15:02:09.560 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 15:02:09.570 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 1364.9601ms
+2024-12-09 15:02:09.595 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 15:02:09.595 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:02:09.612 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 17.9196ms
+2024-12-09 15:02:09.632 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.6995ms
+2024-12-09 15:02:15.874 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Reservations/VerifyPublicKey/1?returnAction=Details - null null
+2024-12-09 15:02:15.886 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender)'
+2024-12-09 15:02:15.895 +01:00 [INF] Route matched with {action = "VerifyPublicKey", controller = "Reservations"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult VerifyPublicKey(System.Nullable`1[System.Int32], System.String) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:02:15.911 +01:00 [INF] VerifyPublicKey (GET) action invoke for rservation ID: 1
+2024-12-09 15:02:15.918 +01:00 [INF] Executing ViewResult, running view VerifyPublicKey.
+2024-12-09 15:02:15.961 +01:00 [INF] Executed ViewResult - view VerifyPublicKey executed in 44.2688ms.
+2024-12-09 15:02:15.968 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender) in 70.9846ms
+2024-12-09 15:02:15.972 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender)'
+2024-12-09 15:02:15.976 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Reservations/VerifyPublicKey/1?returnAction=Details - 200 null text/html; charset=utf-8 100.3133ms
+2024-12-09 15:02:16.014 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 15:02:16.014 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:02:16.025 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 10.8331ms
+2024-12-09 15:02:16.040 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.0397ms
+2024-12-09 15:02:19.081 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:02:19.086 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 4.8205ms
+2024-12-09 15:02:20.292 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Reservations/VerifyPublicKey/1?returnAction=Details - null null
+2024-12-09 15:02:20.299 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender)'
+2024-12-09 15:02:20.301 +01:00 [INF] Route matched with {action = "VerifyPublicKey", controller = "Reservations"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult VerifyPublicKey(System.Nullable`1[System.Int32], System.String) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:02:20.306 +01:00 [INF] VerifyPublicKey (GET) action invoke for rservation ID: 1
+2024-12-09 15:02:20.307 +01:00 [INF] Executing ViewResult, running view VerifyPublicKey.
+2024-12-09 15:02:20.311 +01:00 [INF] Executed ViewResult - view VerifyPublicKey executed in 4.0288ms.
+2024-12-09 15:02:20.312 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender) in 9.4038ms
+2024-12-09 15:02:20.313 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender)'
+2024-12-09 15:02:20.315 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Reservations/VerifyPublicKey/1?returnAction=Details - 200 null text/html; charset=utf-8 22.9285ms
+2024-12-09 15:02:20.350 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:02:20.350 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 15:02:20.353 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 4.0879ms
+2024-12-09 15:02:20.373 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.1423ms
+2024-12-09 15:02:25.162 +01:00 [INF] Request starting HTTP/2 POST https://localhost:5001/Reservations/VerifyPublicKey/1 - application/x-www-form-urlencoded 266
+2024-12-09 15:02:25.168 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender)'
+2024-12-09 15:02:25.177 +01:00 [INF] Route matched with {action = "VerifyPublicKey", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyPublicKey(Terminkalender.Models.VerifyPublicKeyViewModel) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:02:25.198 +01:00 [INF] VerifyPublicKey (Post) action invoke with Model Terminkalender.Models.VerifyPublicKeyViewModel
+2024-12-09 15:02:25.433 +01:00 [INF] Executed DbCommand (43ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-12-09 15:02:25.437 +01:00 [WRN] PublicKey verification failed for reservation ID: 1
+2024-12-09 15:02:25.438 +01:00 [INF] Executing ViewResult, running view VerifyPublicKey.
+2024-12-09 15:02:25.441 +01:00 [INF] Executed ViewResult - view VerifyPublicKey executed in 2.8897ms.
+2024-12-09 15:02:25.442 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender) in 263.3444ms
+2024-12-09 15:02:25.443 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender)'
+2024-12-09 15:02:25.445 +01:00 [INF] Request finished HTTP/2 POST https://localhost:5001/Reservations/VerifyPublicKey/1 - 200 null text/html; charset=utf-8 282.6072ms
+2024-12-09 15:02:25.475 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:02:25.475 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 15:02:25.479 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 4.0231ms
+2024-12-09 15:02:25.491 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.7529ms
+2024-12-09 15:02:27.505 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Reservations/VerifyPublicKey/1?returnAction=Details - null null
+2024-12-09 15:02:27.515 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender)'
+2024-12-09 15:02:27.517 +01:00 [INF] Route matched with {action = "VerifyPublicKey", controller = "Reservations"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult VerifyPublicKey(System.Nullable`1[System.Int32], System.String) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:02:27.521 +01:00 [INF] VerifyPublicKey (GET) action invoke for rservation ID: 1
+2024-12-09 15:02:27.522 +01:00 [INF] Executing ViewResult, running view VerifyPublicKey.
+2024-12-09 15:02:27.526 +01:00 [INF] Executed ViewResult - view VerifyPublicKey executed in 3.8945ms.
+2024-12-09 15:02:27.529 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender) in 7.809ms
+2024-12-09 15:02:27.530 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPublicKey (Terminkalender)'
+2024-12-09 15:02:27.532 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Reservations/VerifyPublicKey/1?returnAction=Details - 200 null text/html; charset=utf-8 27.3868ms
+2024-12-09 15:02:27.558 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:02:27.564 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 6.3237ms
+2024-12-09 15:02:29.749 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 15:02:29.756 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 15:02:29.757 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:02:29.761 +01:00 [INF] Index action invoked.
+2024-12-09 15:02:29.795 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:02:29.799 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 3.8486ms
+2024-12-09 15:02:29.854 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+2024-12-09 15:02:29.858 +01:00 [INF] Fetched 3 reservations from the database.
+2024-12-09 15:02:29.860 +01:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 15:02:29.869 +01:00 [INF] Executed ViewResult - view Index executed in 9.6662ms.
+2024-12-09 15:02:29.871 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 110.9389ms
+2024-12-09 15:02:29.873 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 15:02:29.875 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 126.1217ms
+2024-12-09 15:02:33.196 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Reservations/VerifyPrivateKey/1?returnAction=Edit - null null
+2024-12-09 15:02:33.201 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPrivateKey (Terminkalender)'
+2024-12-09 15:02:33.207 +01:00 [INF] Route matched with {action = "VerifyPrivateKey", controller = "Reservations"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult VerifyPrivateKey(System.Nullable`1[System.Int32], System.String) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:02:33.211 +01:00 [INF] VerifyPrivateKey (GET) action invoked for reservation ID: 1
+2024-12-09 15:02:33.213 +01:00 [INF] Executing ViewResult, running view VerifyPrivateKey.
+2024-12-09 15:02:33.227 +01:00 [INF] Executed ViewResult - view VerifyPrivateKey executed in 15.36ms.
+2024-12-09 15:02:33.229 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.VerifyPrivateKey (Terminkalender) in 19.3362ms
+2024-12-09 15:02:33.230 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPrivateKey (Terminkalender)'
+2024-12-09 15:02:33.231 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Reservations/VerifyPrivateKey/1?returnAction=Edit - 200 null text/html; charset=utf-8 35.2976ms
+2024-12-09 15:02:33.262 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 15:02:33.263 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:02:33.274 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 11.4924ms
+2024-12-09 15:02:33.280 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 18.5167ms
+2024-12-09 15:02:36.921 +01:00 [INF] Request starting HTTP/2 POST https://localhost:5001/Reservations/VerifyPrivateKey/1 - application/x-www-form-urlencoded 264
+2024-12-09 15:02:36.925 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPrivateKey (Terminkalender)'
+2024-12-09 15:02:36.932 +01:00 [INF] Route matched with {action = "VerifyPrivateKey", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] VerifyPrivateKey(Terminkalender.Models.VerifyPrivateKeyViewModel) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:02:36.941 +01:00 [INF] VerifyPrivateKey (POST) action invoked with modelPubK: Terminkalender.Models.VerifyPrivateKeyViewModel
+2024-12-09 15:02:36.955 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-12-09 15:02:36.958 +01:00 [INF] PrivateKey verified successfully for reservation ID: 1
+2024-12-09 15:02:36.963 +01:00 [INF] Executing RedirectResult, redirecting to /Reservations/Edit/1.
+2024-12-09 15:02:36.966 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.VerifyPrivateKey (Terminkalender) in 31.1227ms
+2024-12-09 15:02:36.968 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.VerifyPrivateKey (Terminkalender)'
+2024-12-09 15:02:36.973 +01:00 [INF] Session started; Key:b78cda2e-41e5-f857-c104-6bfa9c4dc28b, Id:97e8d62a-1df1-74e1-27db-50285412d0bc
+2024-12-09 15:02:36.979 +01:00 [INF] Request finished HTTP/2 POST https://localhost:5001/Reservations/VerifyPrivateKey/1 - 302 0 null 58.368ms
+2024-12-09 15:02:36.990 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/Reservations/Edit/1 - null null
+2024-12-09 15:02:36.996 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Edit (Terminkalender)'
+2024-12-09 15:02:37.003 +01:00 [INF] Route matched with {action = "Edit", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(System.Nullable`1[System.Int32]) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:02:37.017 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-12-09 15:02:37.020 +01:00 [INF] Edit (GET) action invoked for reservation ID: 1
+2024-12-09 15:02:37.022 +01:00 [INF] Executing ViewResult, running view Edit.
+2024-12-09 15:02:37.079 +01:00 [INF] Executed ViewResult - view Edit executed in 57.7087ms.
+2024-12-09 15:02:37.080 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Edit (Terminkalender) in 73.5135ms
+2024-12-09 15:02:37.082 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Edit (Terminkalender)'
+2024-12-09 15:02:37.084 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/Reservations/Edit/1 - 200 null text/html; charset=utf-8 94.2063ms
+2024-12-09 15:02:37.111 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 15:02:37.111 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:02:37.123 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 10.2832ms
+2024-12-09 15:02:37.131 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.7733ms
+2024-12-09 15:07:14.658 +01:00 [INF] Request starting HTTP/2 POST https://localhost:5001/Reservations/Edit/1 - application/x-www-form-urlencoded 430
+2024-12-09 15:07:14.672 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Edit (Terminkalender)'
+2024-12-09 15:07:14.678 +01:00 [INF] Route matched with {action = "Edit", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32, Terminkalender.Models.Reservation) on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:07:14.704 +01:00 [INF] Edit (POST) action invoked for reservation ID: 1
+2024-12-09 15:07:14.705 +01:00 [INF] Checking room availability for edited reservation with ID: 1
+2024-12-09 15:07:14.749 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__room_0='?' (DbType = Int32), @__date_Date_1='?' (DbType = DateTime), @__Id_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+WHERE ((`r`.`Room` = @__room_0) AND (CONVERT(`r`.`Date`, date) = @__date_Date_1)) AND (`r`.`Id` <> @__Id_2)
+2024-12-09 15:07:14.755 +01:00 [INF] Der Raum ist verfügbar für den angegebenen Zeitraum.
+2024-12-09 15:07:14.867 +01:00 [INF] Executed DbCommand (19ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (DbType = Time), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Guid), @p5='?' (DbType = Guid), @p6='?' (Size = 200), @p7='?' (DbType = Int32), @p8='?' (DbType = Time)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `Reservations` SET `Date` = @p0, `EndTime` = @p1, `Organizer` = @p2, `Participants` = @p3, `PrivateKey` = @p4, `PublicKey` = @p5, `Remarks` = @p6, `Room` = @p7, `StartTime` = @p8
+WHERE `Id` = @p9;
+SELECT ROW_COUNT();
+2024-12-09 15:07:14.908 +01:00 [INF] Reservation updated successfully with ID: 1
+2024-12-09 15:07:14.910 +01:00 [INF] Executing RedirectResult, redirecting to /.
+2024-12-09 15:07:14.913 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Edit (Terminkalender) in 232.3317ms
+2024-12-09 15:07:14.916 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Edit (Terminkalender)'
+2024-12-09 15:07:14.918 +01:00 [INF] Request finished HTTP/2 POST https://localhost:5001/Reservations/Edit/1 - 302 0 null 260.0891ms
+2024-12-09 15:07:14.924 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 15:07:14.932 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 15:07:14.934 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:07:14.936 +01:00 [INF] Index action invoked.
+2024-12-09 15:07:14.943 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+2024-12-09 15:07:14.946 +01:00 [INF] Fetched 3 reservations from the database.
+2024-12-09 15:07:14.948 +01:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 15:07:14.961 +01:00 [INF] Executed ViewResult - view Index executed in 12.3849ms.
+2024-12-09 15:07:14.963 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 26.7567ms
+2024-12-09 15:07:14.965 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 15:07:14.966 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 42.2568ms
+2024-12-09 15:07:14.998 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:07:14.998 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 15:07:15.003 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 4.5521ms
+2024-12-09 15:07:15.023 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 24.3913ms
+2024-12-09 15:11:16.650 +01:00 [INF] User profile is available. Using 'C:\Users\josia\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 15:11:16.795 +01:00 [INF] Now listening on: https://localhost:5001
+2024-12-09 15:11:16.796 +01:00 [INF] Now listening on: http://localhost:5000
+2024-12-09 15:11:16.818 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 15:11:16.820 +01:00 [INF] Hosting environment: Development
+2024-12-09 15:11:16.821 +01:00 [INF] Content root path: C:\Users\josia\source\repos\Terminkalender\Terminkalender
+2024-12-09 15:11:17.476 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-12-09 15:11:17.566 +01:00 [INF] Executing endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 15:11:17.589 +01:00 [INF] Route matched with {action = "Index", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Terminkalender.Controllers.ReservationsController (Terminkalender).
+2024-12-09 15:11:17.684 +01:00 [INF] Index action invoked.
+2024-12-09 15:11:18.080 +01:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`Date`, `r`.`EndTime`, `r`.`Organizer`, `r`.`Participants`, `r`.`PrivateKey`, `r`.`PublicKey`, `r`.`Remarks`, `r`.`Room`, `r`.`StartTime`
+FROM `Reservations` AS `r`
+2024-12-09 15:11:18.132 +01:00 [INF] Fetched 3 reservations from the database.
+2024-12-09 15:11:18.140 +01:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 15:11:18.209 +01:00 [INF] Executed ViewResult - view Index executed in 70.4401ms.
+2024-12-09 15:11:18.215 +01:00 [INF] Executed action Terminkalender.Controllers.ReservationsController.Index (Terminkalender) in 623.206ms
+2024-12-09 15:11:18.220 +01:00 [INF] Executed endpoint 'Terminkalender.Controllers.ReservationsController.Index (Terminkalender)'
+2024-12-09 15:11:18.230 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 756.3366ms
+2024-12-09 15:11:18.246 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-12-09 15:11:18.246 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 15:11:18.247 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2024-12-09 15:11:18.267 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13764 application/javascript; charset=utf-8 20.4441ms
+2024-12-09 15:11:18.268 +01:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\josia\source\repos\Terminkalender\Terminkalender\wwwroot\js\site.js'
+2024-12-09 15:11:18.274 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 499 231 text/javascript 27.4415ms
+2024-12-09 15:11:18.296 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.9608ms
+2024-12-09 15:11:18.309 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2024-12-09 15:11:18.317 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 499 null null 7.9933ms
+2024-12-09 15:11:18.321 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/favicon.ico, Response status code: 499

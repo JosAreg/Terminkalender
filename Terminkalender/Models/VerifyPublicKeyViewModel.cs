@@ -1,7 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Terminkalender.Models;
-using System.ComponentModel.DataAnnotations;
-using Terminkalender.Validators;
 
 
 namespace Terminkalender.Models

@@ -1,6 +1,4 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Terminkalender.Validators
 {
@@ -8,9 +6,9 @@ namespace Terminkalender.Validators
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-           if(value is DateTime dateValue)
+            if (value is DateTime dateValue)
             {
-                if(dateValue.Date > DateTime.Now.Date)
+                if (dateValue.Date > DateTime.Now.Date)
                 {
                     return ValidationResult.Success;
                 }

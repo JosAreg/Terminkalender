@@ -48,7 +48,26 @@
                 <span asp-validation-for="Participants" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="PrivateKey">PrivateKey</label>
+                <div class="input-group">
+                    <input asp-for="PrivateKey" class="form-control" readonly="readonly" id="PrivateKeyField" />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary" onclick="copyToClipboard('PrivateKeyField')">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublicKey">PublicKey</label>
+                <div class="input-group">
+                    <input asp-for="PublicKey" class="form-control" readonly="readonly" id="PublicKeyField" />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary" onclick="copyToClipboard('PublicKeyField')">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+                <button type="button" class="btn btn-secondary" onclick="downloadKeysAsTxt()">Download Keys as .txt</button>
             </div>
         </form>
     </div>
@@ -62,4 +81,33 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script>
+        function copyToClipboard(elementId) {
+            var copyText = document.getElementById(elementId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // Für mobile Geräte
+            navigator.clipboard.writeText(copyText.value).then(function () {
+                alert("Copied to clipboard: " + copyText.value);
+            }, function (err) {
+                console.error("Could not copy text: ", err);
+            });
+        }
+
+        function downloadKeysAsTxt() {
+            var privateKey = document.getElementById('PrivateKeyField').value;
+            var publicKey = document.getElementById('PublicKeyField').value;
+
+            var content = `Private Key: ${privateKey}\nPublic Key: ${publicKey}`;
+            var blob = new Blob([content], { type: "text/plain" });
+            var url = window.URL.createObjectURL(blob);
+
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = "keys.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
 }

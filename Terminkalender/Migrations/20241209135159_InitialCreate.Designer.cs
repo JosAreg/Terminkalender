@@ -12,8 +12,8 @@ using Terminkalender.Data;
 namespace Terminkalender.Migrations
 {
     [DbContext(typeof(TerminkalenderContext))]
-    [Migration("20241127141402_AddParticipantsToReservation")]
-    partial class AddParticipantsToReservation
+    [Migration("20241209135159_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,10 @@ namespace Terminkalender.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Participants")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<Guid>("PrivateKey")
                         .HasColumnType("char(36)");
 
@@ -51,7 +55,8 @@ namespace Terminkalender.Migrations
 
                     b.Property<string>("Remarks")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
 
                     b.Property<int>("Room")
                         .HasColumnType("int");

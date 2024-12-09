@@ -1,18 +1,21 @@
 ﻿using Terminkalender.Data;
 using Terminkalender.Models;
-using Serilog;
-using NuGet.Protocol;
 
 namespace Terminkalender.Services
 {
     public class ReservationService
     {
         private readonly TerminkalenderContext _context;
-        private readonly ILogger<ReservationService> _logger;   
+        private readonly ILogger<ReservationService> _logger;
         public ReservationService(TerminkalenderContext context, ILogger<ReservationService> logger)
         {
             _context = context;
             _logger = logger;
+        }
+
+        public bool ValidateTime(TimeOnly startTime, TimeOnly endTime)
+        {
+            return startTime < endTime;
         }
 
         public bool IsRoomAvailable(Room room, DateTime date, TimeOnly startTime, TimeOnly endTime, int Id)
@@ -38,10 +41,8 @@ namespace Terminkalender.Services
                     return false;
                 }
             }
-
             _logger.LogInformation("Der Raum ist verfügbar für den angegebenen Zeitraum.");
             return true;
         }
-
     }
 }

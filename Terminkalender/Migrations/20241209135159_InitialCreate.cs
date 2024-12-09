@@ -27,10 +27,12 @@ namespace Terminkalender.Migrations
                     Room = table.Column<int>(type: "int", nullable: false),
                     Organizer = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Remarks = table.Column<string>(type: "longtext", nullable: false)
+                    Remarks = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     PrivateKey = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    PublicKey = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                    PublicKey = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Participants = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {

@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql;
 using Serilog;
 using Serilog.Events;
 using Terminkalender.Data;
@@ -9,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Session-Konfiguration für PrivateKey
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(options => {
+builder.Services.AddSession(options =>
+{
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;

@@ -13,7 +13,6 @@ namespace Terminkalender.Controllers
         private readonly TerminkalenderContext _context;
         private readonly ReservationService _reservationService;
         private readonly ILogger<ReservationsController> _logger;
-
         public ReservationsController(TerminkalenderContext context, ReservationService reservationService, ILogger<ReservationsController> logger)
         {
             _context = context;
@@ -21,7 +20,7 @@ namespace Terminkalender.Controllers
             _logger = logger;
         }
 
-        // Index: Zeigt alle Reservationen
+        // Index
         public async Task<IActionResult> Index()
         {
             _logger.LogInformation("Index action invoked.");
@@ -30,31 +29,44 @@ namespace Terminkalender.Controllers
             return View(reservations);
         }
 
-        // Create: Formular Create
+        // Create GET
         public IActionResult Create()
         {
             _logger.LogInformation("Create (GET) action invoked.");
-            return View();
+            var reservation = new Reservation
+            {
+                PrivateKey = Guid.NewGuid(),
+                PublicKey = Guid.NewGuid(),
+                Date = DateTime.Now,
+            };
+            return View(reservation);
         }
 
-        // Create (POST): Neue Reservierung speichern
+        // Create (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Reservation reservation)
         {
             _logger.LogInformation("Create (POST) action invoked with reservation details: {Reservation}", reservation);
 
+            // Zeitspanne prüfen, start vor ende
+            if (!_reservationService.ValidateTime(reservation.StartTime, reservation.EndTime))
+            {
+                _logger.LogWarning("Endzeit muss nach Startzeit sein");
+                _logger.LogInformation($"StartTime: {reservation.StartTime}, EndTime: {reservation.EndTime}", reservation.StartTime, reservation.EndTime);
+
+                ModelState.AddModelError(string.Empty, "Die Startzeit muss vor der Endzeit sein. Prüfe deine Eingabe");
+            }
 
             if (ModelState.IsValid)
             {
-                // Prüfe, ob der Raum verfügbar ist
-                _logger.LogInformation("Checking room availability for room: {Room}, date: {Date}, start: {StartTime}, end: {EndTime}",
-                    reservation.Room, reservation.Date, reservation.StartTime, reservation.EndTime);
+                _logger.LogInformation($"Checking room availability for room: {reservation.Room}, date: {reservation.Date}, start: {reservation.StartTime}, end: {reservation.EndTime}",
+                reservation.Room, reservation.Date, reservation.StartTime, reservation.EndTime);
 
+                // Prüfen ob der Raum verfügbar ist
                 if (_reservationService.IsRoomAvailable(reservation.Room, reservation.Date, reservation.StartTime, reservation.EndTime, reservation.Id))
                 {
-                    reservation.PrivateKey = Guid.NewGuid();
-                    reservation.PublicKey = Guid.NewGuid();
+                    //reservation.PrivateKey = Guid.NewGuid();
                     _context.Add(reservation);
                     await _context.SaveChangesAsync();
                     _logger.LogInformation("Reservation created successfully with ID: {Id}", reservation.Id);
@@ -73,7 +85,7 @@ namespace Terminkalender.Controllers
             return View(reservation);
         }
 
-        // GET: Reservations/VerifyPrivateKey/5
+        // VerifyPrivateKey (GET)
         public IActionResult VerifyPrivateKey(int? id, string returnAction = "Edit")
         {
             if (id == null)
@@ -86,18 +98,18 @@ namespace Terminkalender.Controllers
             var model = new VerifyPrivateKeyViewModel
             {
                 ReservationId = id.Value,
-                ReturnAction = returnAction // Korrektur des Namens
+                ReturnAction = returnAction
             };
 
             return View(model);
         }
 
-        // POST: Reservations/VerifyPrivateKey
+        // VerifyPrivateKey (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> VerifyPrivateKey(VerifyPrivateKeyViewModel model)
         {
-            _logger.LogInformation("VerifyPrivateKey (POST) action invoked with model: {Model}", model);
+            _logger.LogInformation($"VerifyPrivateKey (POST) action invoked with modelPubK: {model}");
             if (!ModelState.IsValid)
             {
                 foreach (var modelState in ModelState)
@@ -107,7 +119,7 @@ namespace Terminkalender.Controllers
                         _logger.LogWarning("ModelState Error: {ErrorMessage}", error.ErrorMessage);
                     }
                 }
-                _logger.LogWarning("Model validation failed for VerifyPrivateKey with model: {Model}", model);
+                _logger.LogWarning($"Model validation failed for VerifyPrivateKey with modelPubK: {model}");
                 return View(model);
             }
 
@@ -117,13 +129,13 @@ namespace Terminkalender.Controllers
 
                 if (reservation == null)
                 {
-                    _logger.LogWarning("No reservation found with ID: {Id}", model.ReservationId);
+                    _logger.LogWarning($"No reservation found with ID: {model.ReservationId}");
                     return NotFound();
                 }
 
                 if (reservation.PrivateKey == model.PrivateKey)
                 {
-                    _logger.LogInformation("PrivateKey verified successfully for reservation ID: {Id}", model.ReservationId);
+                    _logger.LogInformation($"PrivateKey verified successfully for reservation ID: {model.ReservationId}");
                     // PrivateKey in der Session speichern
                     HttpContext.Session.SetString("PrivateKey", model.PrivateKey.ToString());
 
@@ -131,19 +143,19 @@ namespace Terminkalender.Controllers
                     if (model.ReturnAction == "Delete")
                     {
                         _logger.LogInformation("ReturnAction == Delete");
-                        return RedirectToAction("Delete", new { id = model.ReservationId }); // ID zur Delete-Action übergeben
+                        return RedirectToAction("Delete", new { id = model.ReservationId });
                     }
                     return RedirectToAction("Edit", new { id = model.ReservationId });
                 }
                 else
                 {
-                    _logger.LogWarning("PrivateKey verification failed for reservation ID: {Id}", model.ReservationId);
+                    _logger.LogWarning($"PrivateKey verification failed for reservation ID: {model.ReservationId}");
                     ModelState.AddModelError(string.Empty, "Der Private Key ist nicht korrekt");
                 }
             }
             else
             {
-                _logger.LogWarning("Model validation failed for VerifyPrivateKey with model: {Model}", model);
+                _logger.LogWarning($"Model validation failed for VerifyPrivateKey with modelPubK: {model}");
             }
             return View(model);
         }
@@ -161,7 +173,7 @@ namespace Terminkalender.Controllers
             var reservation = await _context.Reservations.FindAsync(id);
             if (reservation == null)
             {
-                _logger.LogWarning("No reservation found with ID: {Id}", id);
+                _logger.LogWarning($"No reservation found with ID: {id}");
                 return NotFound();
             }
 
@@ -169,20 +181,20 @@ namespace Terminkalender.Controllers
 
             if (sessionPrivateKey == null || reservation.PrivateKey.ToString() != sessionPrivateKey)
             {
-                _logger.LogWarning("Unauthorized access attempt for reservation ID: {Id}", id);
+                _logger.LogWarning($"Unauthorized access attempt for reservation ID: {id}");
                 return Unauthorized();
             }
 
-            _logger.LogInformation("Edit (GET) action invoked for reservation ID: {Id}", id);
+            _logger.LogInformation($"Edit (GET) action invoked for reservation ID: {id}");
             return View(reservation);
         }
 
-        // Edit (POST): Bearbeitete Reservierung speichern
+        // Edit (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Reservation reservation)
         {
-            _logger.LogInformation("Edit (POST) action invoked for reservation ID: {Id}", id);
+            _logger.LogInformation($"Edit (POST) action invoked for reservation ID: {id}");
 
             if (id != reservation.Id)
             {
@@ -194,39 +206,38 @@ namespace Terminkalender.Controllers
             var sessionPrivateKey = HttpContext.Session.GetString("PrivateKey");
             if (sessionPrivateKey == null || reservation.PrivateKey.ToString() != sessionPrivateKey)
             {
-                _logger.LogError("Unauthorized: The Private Key does not match or is missing for reservation ID: {Id}", id);
+                _logger.LogError($"Unauthorized: The Private Key does not match or is missing for reservation ID: {id}");
                 return Unauthorized();
             }
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("Model validation failed for reservation ID: {Id}", id);
+                _logger.LogWarning($"Model validation failed for reservation ID: {id}");
                 return View(reservation);
             }
 
             try
             {
-                _logger.LogInformation("Checking room availability for edited reservation with ID: {Id}", id);
+                _logger.LogInformation($"Checking room availability for edited reservation with ID: {id}");
 
                 // Verfügbarkeitsprüfung ohne die eigene Reservierung zu berücksichtigen
                 if (_reservationService.IsRoomAvailable(reservation.Room, reservation.Date, reservation.StartTime, reservation.EndTime, reservation.Id))
                 {
                     _context.Update(reservation);
                     await _context.SaveChangesAsync();
-                    _logger.LogInformation("Reservation updated successfully with ID: {Id}", id);
+                    _logger.LogInformation($"Reservation updated successfully with ID: {id}");
                 }
                 else
                 {
-                    _logger.LogWarning("Room is not available for the given time slot for reservation ID: {Id}", id);
+                    _logger.LogWarning($"Room is not available for the given time slot for reservation ID: {id}");
                     ModelState.AddModelError("", "Der Raum ist zur angegebenen Zeit bereits reserviert.");
                     return View(reservation);
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error while updating reservation with ID: {Id}", id);
+                _logger.LogError(ex, $"Error while updating reservation with ID: {id}");
             }
-
             return RedirectToAction(nameof(Index));
         }
 
@@ -243,18 +254,17 @@ namespace Terminkalender.Controllers
             var reservation = await _context.Reservations.FindAsync(id);
             if (reservation == null)
             {
-                _logger.LogWarning("No reservation found with ID: {Id}", id);
+                _logger.LogWarning($"No reservation found with ID: {id}");
                 return NotFound();
             }
 
             var sessionPrivateKey = HttpContext.Session.GetString("PrivateKey");
             if (sessionPrivateKey == null || reservation.PrivateKey.ToString() != sessionPrivateKey)
             {
-                _logger.LogWarning("Unauthorized access attempt for deletion of reservation ID: {Id}", id);
+                _logger.LogWarning($"Unauthorized access attempt for deletion of reservation ID: {id}");
                 return RedirectToAction("VerifyPrivateKey", new { id }); // Weiterleitung zur PrivateKey-Verifizierung
             }
-
-            _logger.LogInformation("Delete (GET) action invoked for reservation ID: {Id}", id);
+            _logger.LogInformation($"Delete (GET) action invoked for reservation ID: {id}");
             return View(reservation);
         }
 
@@ -263,19 +273,19 @@ namespace Terminkalender.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            _logger.LogInformation("DeleteConfirmed (POST) action invoked for reservation ID: {Id}", id);
+            _logger.LogInformation($"DeleteConfirmed (POST) action invoked for reservation ID: {id}");
 
             var reservation = await _context.Reservations.FindAsync(id);
             if (reservation == null)
             {
-                _logger.LogWarning("Reservation not found for deletion with ID: {Id}", id);
+                _logger.LogWarning($"Reservation not found for deletion with ID: {id}");
                 return NotFound(); // Statt Unauthorized zu verwenden
             }
 
             var sessionPrivateKey = HttpContext.Session.GetString("PrivateKey");
             if (sessionPrivateKey == null || reservation.PrivateKey.ToString() != sessionPrivateKey)
             {
-                _logger.LogWarning("Unauthorized deletion attempt for reservation ID: {Id}", id);
+                _logger.LogWarning($"Unauthorized deletion attempt for reservation ID: {id}");
                 return Unauthorized();
             }
 
@@ -283,11 +293,11 @@ namespace Terminkalender.Controllers
             {
                 _context.Reservations.Remove(reservation);
                 await _context.SaveChangesAsync();
-                _logger.LogInformation("Reservation deleted successfully with ID: {Id}", id);
+                _logger.LogInformation($"Reservation deleted successfully with ID: {id}");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error while deleting reservation with ID: {Id}", id);
+                _logger.LogError(ex, $"Error while deleting reservation with ID: {id}");
                 ModelState.AddModelError("", "Ein Fehler ist beim Löschen der Reservierung aufgetreten.");
                 return View(reservation);
             }
@@ -299,7 +309,7 @@ namespace Terminkalender.Controllers
         // GET: Reservateion/VerifyPublicKey/5
         public IActionResult VerifyPublicKey(int? id, string returnAction = "Details")
         {
-            if(id == null)
+            if (id == null)
             {
                 _logger.LogWarning("VerifyPublicKey (GET) action invike with null ID");
                 return NotFound();
@@ -317,62 +327,60 @@ namespace Terminkalender.Controllers
         // POST: Reservation/VerifyPublicKey
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> VerifyPublicKey(VerifyPublicKeyViewModel model)
+        public async Task<IActionResult> VerifyPublicKey(VerifyPublicKeyViewModel modelPubK)
         {
-            _logger.LogInformation($"VerifyPublicKey (Post) action invoke with Model {model}");
+            _logger.LogInformation($"VerifyPublicKey (Post) action invoke with Model {modelPubK}");
             if (!ModelState.IsValid)
             {
-                foreach(var modelState in ModelState)
+                foreach (var modelState in ModelState)
                 {
-                    foreach(var error in modelState.Value.Errors)
+                    foreach (var error in modelState.Value.Errors)
                     {
                         _logger.LogWarning($"ModelState Error: {error.ErrorMessage}");
                     }
                 }
-                _logger.LogWarning($"Model validation failed for VerifyPublicKey with model: {model}");
-                return View(model);
+                _logger.LogWarning($"Model validation failed for VerifyPublicKey with modelPubK: {modelPubK}");
+                return View(modelPubK);
             }
 
-            var reservation = await _context.Reservations.FindAsync(model.ReservationId);
+            var reservation = await _context.Reservations.FindAsync(modelPubK.ReservationId);
 
-            if(reservation == null)
+            if (reservation == null)
             {
-                _logger.LogWarning($"No reservation found with ID: {model.ReservationId}");
+                _logger.LogWarning($"No reservation found with ID: {modelPubK.ReservationId}");
                 return NotFound();
             }
 
-            if (reservation.PublicKey == model.PublicKey) 
+            if (reservation.PublicKey == modelPubK.PublicKey)
             {
-                _logger.LogInformation($"PublicKey verified successfully for reservation ID:{model.ReservationId}");
-                return RedirectToAction("Details", new { id = model.ReservationId });
+                _logger.LogInformation($"PublicKey verified successfully for reservation ID:{modelPubK.ReservationId}");
+                return RedirectToAction("Details", new { id = modelPubK.ReservationId });
             }
-            else 
+            else
             {
-                _logger.LogWarning("PublicKey verification failed for reservation ID: {Id}", model.ReservationId);
+                _logger.LogWarning("PublicKey verification failed for reservation ID: {Id}", modelPubK.ReservationId);
                 ModelState.AddModelError(string.Empty, "Der Public Key ist nicht korrekt");
             }
-            return View(model);
+            return View(modelPubK);
         }
 
         //Details: Details einder bestehenden Reservierung anzeigen
         public async Task<IActionResult> Details(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 _logger.LogWarning($"Details (GET) action invoke with null ID");
                 return NotFound();
             }
 
             var reservation = await _context.Reservations.FindAsync(id);
-            if(reservation == null)
+            if (reservation == null)
             {
                 _logger.LogWarning($"No reservation found with ID {id}");
                 return NotFound();
             }
-
             _logger.LogInformation($"Details (GET) action invoke foe reservation ID: {id}");
             return View(reservation);
         }
-
     }
 }
