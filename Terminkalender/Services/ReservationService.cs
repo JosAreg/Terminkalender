@@ -20,6 +20,17 @@ namespace Terminkalender.Services
             return startTime < endTime;
         }
 
+        public int GenerateReservationId()
+        {
+            int id;
+            do
+            {
+                id = new Random().Next(1, int.MaxValue);
+            } while (_context.Reservations.Any(r => r.Id == id)); // Prüfe, ob die ID bereits existiert
+            return id;
+        }
+
+
         // Prüfen ob die Startzeit in der Zukunft liegt
         public bool IsReservationInFuture(DateOnly date, TimeOnly startTime) 
         {
