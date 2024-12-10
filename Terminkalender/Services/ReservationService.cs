@@ -7,15 +7,30 @@ namespace Terminkalender.Services
     {
         private readonly TerminkalenderContext _context;
         private readonly ILogger<ReservationService> _logger;
+        private readonly TimeZoneInfo _timeZone;
         public ReservationService(TerminkalenderContext context, ILogger<ReservationService> logger)
         {
             _context = context;
             _logger = logger;
+            _timeZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
         }
 
         public bool ValidateTime(TimeOnly startTime, TimeOnly endTime)
         {
             return startTime < endTime;
+        }
+
+        // Prüfen ob die Startzeit in der Zukunft liegt
+        public bool IsReservationInFuture(DateOnly date, TimeOnly startTime) 
+        {
+            var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, _timeZone);
+
+            var reservationStart = date
+                .ToDateTime(TimeOnly.MinValue)
+                .AddHours(startTime.Hour)
+                .AddMinutes(startTime.Minute);
+
+            return reservationStart >= now;
         }
 
         public bool IsRoomAvailable(Room room, DateTime date, TimeOnly startTime, TimeOnly endTime, int Id)

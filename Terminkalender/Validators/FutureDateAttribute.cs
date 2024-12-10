@@ -8,13 +8,13 @@ namespace Terminkalender.Validators
         {
             if (value is DateTime dateValue)
             {
-                if (dateValue.Date > DateTime.Now.Date)
+                if (dateValue.Date >= DateTime.Now.Date)
                 {
                     return ValidationResult.Success;
                 }
                 else
                 {
-                    return new ValidationResult(ErrorMessage ?? "Das Datum muss in der Zukunft liegen, aussder du kannst Zeitreisen");
+                    return new ValidationResult(ErrorMessage ?? "Das Datum muss in der Zukunft liegen, ausser du kannst Zeitreisen");
                 }
             }
             return new ValidationResult("Ungültiges Datum");

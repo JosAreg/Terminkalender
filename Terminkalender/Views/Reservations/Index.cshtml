@@ -4,8 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
+<h1>Reservierungen</h1>
+<div>
+    @if ((bool)ViewBag.ShowPast)
+    {
+        <a asp-action="Index" asp-route-showPast="false" class="btn btn-primary">Zeige bevorstehende Reservierungen</a>
+    }
+    else
+    {
+        <a asp-action="Index" asp-route-showPast="true" class="btn btn-secondary">Zeige vergangene Reservierungen</a>
+    }
+</div>
 <p>
     <a asp-action="Create">Create New</a>
 </p>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System.Runtime.CompilerServices;
 using Terminkalender.Data;
 using Terminkalender.Models;
@@ -20,14 +21,30 @@ namespace Terminkalender.Controllers
             _logger = logger;
         }
 
-        // Index
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(bool showPast = false)
         {
-            _logger.LogInformation("Index action invoked.");
-            var reservations = await _context.Reservations.ToListAsync();
-            _logger.LogInformation("Fetched {Count} reservations from the database.", reservations.Count);
+            _logger.LogInformation($"Index action invoked. Show past: {showPast}");
+
+            // Konvertiere die aktuelle UTC-Zeit in die lokale Zeitzone (+1)
+            var timeZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
+            var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
+
+            var reservations = await _context.Reservations
+                .Where(r => showPast
+                    ? r.Date.AddHours(r.StartTime.Hour).AddMinutes(r.StartTime.Minute) < now
+                    : r.Date.AddHours(r.StartTime.Hour).AddMinutes(r.StartTime.Minute) >= now)
+                .OrderBy(r => r.Date) // Erst nach Datum sortieren
+                .ThenBy(r => r.StartTime) // Danach nach Startzeit sortieren
+                .ToListAsync();
+
+            _logger.LogInformation($"Fetched {reservations.Count} reservations from the database.");
+            ViewBag.ShowPast = showPast; // Flag an View übergeben
+            _logger.LogInformation($"Current time: {now}");
             return View(reservations);
         }
+
+
+
 
         // Create GET
         public IActionResult Create()
@@ -56,6 +73,13 @@ namespace Terminkalender.Controllers
                 _logger.LogInformation($"StartTime: {reservation.StartTime}, EndTime: {reservation.EndTime}", reservation.StartTime, reservation.EndTime);
 
                 ModelState.AddModelError(string.Empty, "Die Startzeit muss vor der Endzeit sein. Prüfe deine Eingabe");
+            }
+
+            // Überprüfung: Startzeit darf nicht in der Vergangenheit liegen
+            if (!_reservationService.IsReservationInFuture(DateOnly.FromDateTime(reservation.Date), reservation.StartTime))
+            {
+                _logger.LogWarning("Die Reservierung darf nicht in der Vergangenheit beginnen.");
+                ModelState.AddModelError(string.Empty, "Die Reservierung darf nicht in der Vergangenheit beginnen.");
             }
 
             if (ModelState.IsValid)
