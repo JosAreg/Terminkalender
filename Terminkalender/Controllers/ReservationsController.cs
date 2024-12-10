@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System.Runtime.CompilerServices;
 using Terminkalender.Data;
 using Terminkalender.Models;
 using Terminkalender.Services;
-using Terminkalender.Validators;
 
 namespace Terminkalender.Controllers
 {
@@ -43,9 +40,6 @@ namespace Terminkalender.Controllers
             return View(reservations);
         }
 
-
-
-
         // Create GET
         public IActionResult Create()
         {
@@ -59,56 +53,6 @@ namespace Terminkalender.Controllers
             };
             return View(reservation);
         }
-
-        // Create (POST)
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create(Reservation reservation)
-        //{
-        //    _logger.LogInformation("Create (POST) action invoked with reservation details: {Reservation}", reservation);
-
-        //    // Zeitspanne prüfen, start vor ende
-        //    if (!_reservationService.ValidateTime(reservation.StartTime, reservation.EndTime))
-        //    {
-        //        _logger.LogWarning("Endzeit muss nach Startzeit sein");
-        //        _logger.LogInformation($"StartTime: {reservation.StartTime}, EndTime: {reservation.EndTime}", reservation.StartTime, reservation.EndTime);
-
-        //        ModelState.AddModelError(string.Empty, "Die Startzeit muss vor der Endzeit sein. Prüfe deine Eingabe");
-        //    }
-
-        //    // Überprüfung: Startzeit darf nicht in der Vergangenheit liegen
-        //    if (!_reservationService.IsReservationInFuture(DateOnly.FromDateTime(reservation.Date), reservation.StartTime))
-        //    {
-        //        _logger.LogWarning("Die Reservierung darf nicht in der Vergangenheit beginnen.");
-        //        ModelState.AddModelError(string.Empty, "Die Reservierung darf nicht in der Vergangenheit beginnen.");
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        _logger.LogInformation($"Checking room availability for room: {reservation.Room}, date: {reservation.Date}, start: {reservation.StartTime}, end: {reservation.EndTime}",
-        //        reservation.Room, reservation.Date, reservation.StartTime, reservation.EndTime);
-
-        //        // Prüfen ob der Raum verfügbar ist
-        //        if (_reservationService.IsRoomAvailable(reservation.Room, reservation.Date, reservation.StartTime, reservation.EndTime, reservation.Id))
-        //        {
-        //            //reservation.PrivateKey = Guid.NewGuid();
-        //            _context.Add(reservation);
-        //            await _context.SaveChangesAsync();
-        //            _logger.LogInformation("Reservation created successfully with ID: {Id}", reservation.Id);
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        //        else
-        //        {
-        //            _logger.LogWarning("Room is not available for the given time slot.");
-        //            ModelState.AddModelError("", "Der Raum ist zur angegebenen Zeit bereits reserviert.");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        _logger.LogWarning("Model validation failed for reservation: {Reservation}", reservation);
-        //    }
-        //    return View(reservation);
-        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -157,10 +101,6 @@ namespace Terminkalender.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-
-
-
 
         // VerifyPrivateKey (GET)
         public IActionResult VerifyPrivateKey(int? id, string returnAction = "Edit")
@@ -236,7 +176,6 @@ namespace Terminkalender.Controllers
             }
             return View(model);
         }
-
 
         // Edit: Formular zum Bearbeiten einer bestehenden Reservierung anzeigen
         public async Task<IActionResult> Edit(int? id)
@@ -318,7 +257,6 @@ namespace Terminkalender.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
         // Delete: Bestätigungsseite anzeigen
         public async Task<IActionResult> Delete(int? id)
         {
@@ -381,7 +319,6 @@ namespace Terminkalender.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
 
         // GET: Reservateion/VerifyPublicKey/5
         public IActionResult VerifyPublicKey(int? id, string returnAction = "Details")

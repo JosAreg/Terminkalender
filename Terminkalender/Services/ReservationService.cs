@@ -30,7 +30,6 @@ namespace Terminkalender.Services
             return id;
         }
 
-
         // Prüfen ob die Startzeit in der Zukunft liegt
         public bool IsReservationInFuture(DateOnly date, TimeOnly startTime) 
         {
