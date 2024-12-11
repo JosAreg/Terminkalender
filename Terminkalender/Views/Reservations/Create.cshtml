@@ -13,6 +13,7 @@
         <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" id="ReservationIdField" value="@Model.Id" />
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
                 <input asp-for="Date" class="form-control" type="date" />
@@ -99,8 +100,8 @@
             var publicKey = document.getElementById('PublicKeyField').value;
 
             // URL zur Validierungsseite
-            var reservationId = document.getElementById('ReservationIdField').value; // Füge dieses Feld im HTML hinzu
-            var baseUrl = window.location.origin; // Basis-URL der aktuellen Seite
+            var reservationId = document.getElementById('ReservationIdField').value;
+            var baseUrl = window.location.origin; 
             var verifyUrl = `${baseUrl}/Reservations/VerifyPublicKey/${reservationId}?returnAction=Details`;
 
             var content = `Private Key: ${privateKey}\nPublic Key: ${publicKey}\nVerify URL: ${verifyUrl}`;

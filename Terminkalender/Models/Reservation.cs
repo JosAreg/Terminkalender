@@ -20,12 +20,12 @@ namespace Terminkalender.Models
         public string Organizer { get; set; }
         [Required(ErrorMessage = "Beschreibung ist erforderlich.")]
         [StringLength(200, MinimumLength = 10, ErrorMessage = "Beschreibung muss zwischen 10 und 200 Zeichen lang sein")]
-        [RegularExpression(@"^[a-zA-Z0-9\s]*$", ErrorMessage = "Beschreibung darf nur alphanumerische Zeichen beinhalten")]
+        [RegularExpression(@"^[a-zA-Z0-9\s,.:-]*$", ErrorMessage = @"Ungültige Zeichen. Erlaubt sind Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche sowie :,-,!() und die angegebenen Sonderzeichen.")]
         public string Remarks { get; set; }
         public Guid PrivateKey { get; set; }
         public Guid PublicKey { get; set; }
         [Required(ErrorMessage = "Die Teilnehmerliste darf nicht leer sein.")]
-        [RegularExpression(@"^([A-Za-z\s]+,)*[A-Za-z\s]+$", ErrorMessage = "Die Teilnehmerliste darf nur Buchstaben und Kommas enthalten.")]
+        [RegularExpression(@"^[a-zA-Z0-9\s,.:-]*$", ErrorMessage = @"Ungültige Zeichen. Erlaubt sind Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche sowie :,-,!() und die angegebenen Sonderzeichen.")]
         public string Participants { get; set; }
     }
 }

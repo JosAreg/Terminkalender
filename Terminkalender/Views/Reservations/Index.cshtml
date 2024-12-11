@@ -36,9 +36,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Organizer)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Remarks)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -61,13 +58,9 @@
                 @Html.DisplayFor(modelItem => item.Organizer)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Remarks)
-            </td>
-            <td>
                     <a asp-action="VerifyPrivateKey" asp-route-id="@item.Id" asp-route-returnAction="Edit">Edit</a>|
                     <a asp-action="VerifyPrivateKey" asp-route-id="@item.Id" asp-route-returnAction="Delete">Delete</a>|
                     <a asp-action="VerifyPublicKey" asp-route-id="@item.Id" asp-route-returnAction="Details">Details</a>| 
-
             </td>
         </tr>
 }
