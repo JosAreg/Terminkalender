@@ -22,7 +22,6 @@ namespace Terminkalender.Controllers
         {
             _logger.LogInformation($"Index action invoked. Show past: {showPast}");
 
-            // Konvertiere die aktuelle UTC-Zeit in die lokale Zeitzone (+1)
             var timeZone = TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time");
             var now = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZone);
 
@@ -30,17 +29,16 @@ namespace Terminkalender.Controllers
                 .Where(r => showPast
                     ? r.Date.AddHours(r.StartTime.Hour).AddMinutes(r.StartTime.Minute) < now
                     : r.Date.AddHours(r.StartTime.Hour).AddMinutes(r.StartTime.Minute) >= now)
-                .OrderBy(r => r.Date) // Erst nach Datum sortieren
-                .ThenBy(r => r.StartTime) // Danach nach Startzeit sortieren
+                .OrderBy(r => r.Date) 
+                .ThenBy(r => r.StartTime) 
                 .ToListAsync();
 
             _logger.LogInformation($"Fetched {reservations.Count} reservations from the database.");
-            ViewBag.ShowPast = showPast; // Flag an View übergeben
+            ViewBag.ShowPast = showPast; 
             _logger.LogInformation($"Current time: {now}");
             return View(reservations);
         }
 
-        // Create GET
         public IActionResult Create()
         {
             _logger.LogInformation("Create (GET) action invoked.");
@@ -60,8 +58,6 @@ namespace Terminkalender.Controllers
         {
             _logger.LogInformation("Create (POST) action invoked with reservation details: {Reservation}", reservation);
 
-            // Generiere die ID
-            //reservation.Id = _reservationService.GenerateReservationId();
 
             if (reservation.Id == 0)
             {
@@ -70,7 +66,6 @@ namespace Terminkalender.Controllers
                 return View(reservation);
             }
 
-            // Validierung: Endzeit muss nach Startzeit liegen
             if (!_reservationService.ValidateTime(reservation.StartTime, reservation.EndTime))
             {
                 _logger.LogWarning("Endzeit muss nach Startzeit sein");
@@ -78,7 +73,6 @@ namespace Terminkalender.Controllers
                 return View(reservation);
             }
 
-            // Validierung: Reservierung darf nicht in der Vergangenheit beginnen
             if (!_reservationService.IsReservationInFuture(DateOnly.FromDateTime(reservation.Date), reservation.StartTime))
             {
                 _logger.LogWarning("Die Reservierung darf nicht in der Vergangenheit beginnen.");
@@ -86,7 +80,6 @@ namespace Terminkalender.Controllers
                 return View(reservation);
             }
 
-            // Prüfe, ob der Raum verfügbar ist
             if (!_reservationService.IsRoomAvailable(reservation.Room, reservation.Date, reservation.StartTime, reservation.EndTime, reservation.Id))
             {
                 _logger.LogWarning("Room is not available for the given time slot.");
@@ -94,7 +87,6 @@ namespace Terminkalender.Controllers
                 return View(reservation);
             }
 
-            // Alles ist valide: Speichere die Reservierung
             _context.Add(reservation);
             await _context.SaveChangesAsync();
             _logger.LogInformation("Reservation created successfully with ID: {Id}", reservation.Id);
@@ -102,7 +94,6 @@ namespace Terminkalender.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // VerifyPrivateKey (GET)
         public IActionResult VerifyPrivateKey(int? id, string returnAction = "Edit")
         {
             if (id == null)
@@ -121,7 +112,6 @@ namespace Terminkalender.Controllers
             return View(model);
         }
 
-        // VerifyPrivateKey (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> VerifyPrivateKey(VerifyPrivateKeyViewModel model)
@@ -153,10 +143,8 @@ namespace Terminkalender.Controllers
                 if (reservation.PrivateKey == model.PrivateKey)
                 {
                     _logger.LogInformation($"PrivateKey verified successfully for reservation ID: {model.ReservationId}");
-                    // PrivateKey in der Session speichern
                     HttpContext.Session.SetString("PrivateKey", model.PrivateKey.ToString());
 
-                    // Weiterleitung zur entsprechenden Ansicht
                     if (model.ReturnAction == "Delete")
                     {
                         _logger.LogInformation("ReturnAction == Delete");
@@ -177,7 +165,6 @@ namespace Terminkalender.Controllers
             return View(model);
         }
 
-        // Edit: Formular zum Bearbeiten einer bestehenden Reservierung anzeigen
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -205,7 +192,6 @@ namespace Terminkalender.Controllers
             return View(reservation);
         }
 
-        // Edit (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Reservation reservation)
@@ -218,7 +204,6 @@ namespace Terminkalender.Controllers
                 return NotFound();
             }
 
-            // Überprüfe, ob der PrivateKey in der Session vorhanden ist und korrekt ist
             var sessionPrivateKey = HttpContext.Session.GetString("PrivateKey");
             if (sessionPrivateKey == null || reservation.PrivateKey.ToString() != sessionPrivateKey)
             {
@@ -236,7 +221,6 @@ namespace Terminkalender.Controllers
             {
                 _logger.LogInformation($"Checking room availability for edited reservation with ID: {id}");
 
-                // Verfügbarkeitsprüfung ohne die eigene Reservierung zu berücksichtigen
                 if (_reservationService.IsRoomAvailable(reservation.Room, reservation.Date, reservation.StartTime, reservation.EndTime, reservation.Id))
                 {
                     _context.Update(reservation);
@@ -257,7 +241,6 @@ namespace Terminkalender.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // Delete: Bestätigungsseite anzeigen
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -277,13 +260,12 @@ namespace Terminkalender.Controllers
             if (sessionPrivateKey == null || reservation.PrivateKey.ToString() != sessionPrivateKey)
             {
                 _logger.LogWarning($"Unauthorized access attempt for deletion of reservation ID: {id}");
-                return RedirectToAction("VerifyPrivateKey", new { id }); // Weiterleitung zur PrivateKey-Verifizierung
+                return RedirectToAction("VerifyPrivateKey", new { id }); 
             }
             _logger.LogInformation($"Delete (GET) action invoked for reservation ID: {id}");
             return View(reservation);
         }
 
-        // DeleteConfirmed (POST): Reservierung löschen
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -294,7 +276,7 @@ namespace Terminkalender.Controllers
             if (reservation == null)
             {
                 _logger.LogWarning($"Reservation not found for deletion with ID: {id}");
-                return NotFound(); // Statt Unauthorized zu verwenden
+                return NotFound(); 
             }
 
             var sessionPrivateKey = HttpContext.Session.GetString("PrivateKey");
@@ -320,7 +302,6 @@ namespace Terminkalender.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Reservateion/VerifyPublicKey/5
         public IActionResult VerifyPublicKey(int? id, string returnAction = "Details")
         {
             if (id == null)
@@ -338,7 +319,6 @@ namespace Terminkalender.Controllers
             return View(model);
         }
 
-        // POST: Reservation/VerifyPublicKey
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> VerifyPublicKey(VerifyPublicKeyViewModel modelPubK)
@@ -378,7 +358,6 @@ namespace Terminkalender.Controllers
             return View(modelPubK);
         }
 
-        //Details: Details einder bestehenden Reservierung anzeigen
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
